@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from braces.views import FormMessagesMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-import nginx
+from .nginx import nginx as nginx_helper
 
 from . import models
 from .forms import SiteForm
@@ -25,7 +25,7 @@ class SiteCreate(FormMessagesMixin, LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         self.object = form.save()
         site = self.object
-        nginx = nginx_create(site)
+        nginx = nginx_helper.nginx_create(site)
         response = super(SiteCreate, self).form_valid(form)
         return response
 
@@ -47,22 +47,4 @@ class SiteDelete(FormMessagesMixin, LoginRequiredMixin, DeleteView):
     success_url = '/sites/'
 
 
-def nginx_create(site):
-    conf = nginx.Conf()
-    server = nginx.Server()
 
-    server.add(
-        nginx.Key('listen', '80'),
-        nginx.Key('server_name', site.domain),
-        nginx.Location('/',
-                       nginx.Key('proxy_pass', site.proxy_destination),
-                       nginx.Key('proxy_http_version', '1.1'),
-                       nginx.Key('proxy_set_header', 'Connection $http_connection'),
-                       nginx.Key('proxy_set_header', 'Origin http://$host'),
-                       nginx.Key('proxy_set_header', 'Upgrade $http_upgrade'),
-                       )
-    )
-    conf.add(server)
-    nginx.dumpf(conf, '/Users/leegregory/Sites/pynginx/src/conf/sites/' + site.domain + '.conf')
-
-    return True
