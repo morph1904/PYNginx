@@ -67,5 +67,5 @@ I will try to script this up at some point.
     [Install]
     WantedBy=multi-user.target
     
-###Activate service on boot
+### Activate service on boot
     sudo systemctl activate uwsgi.service
