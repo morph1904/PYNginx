@@ -8,7 +8,7 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 # Must mention ALLOWED_HOSTS in production!
-# ALLOWED_HOSTS = ["pynginx.com"]
+ALLOWED_HOSTS = ["192.168.1.194"]
 
 # Cache the templates in memory for speed-up
 loaders = [
