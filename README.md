@@ -2,6 +2,7 @@
 A Django based Nginx control panel with SSH and Reverse Proxy
 
 ## Install
+I will try to script this up at some point. 
 ### Install pip
     sudo apt install python-pip -y
 ### Install virtualenv
@@ -42,6 +43,29 @@ A Django based Nginx control panel with SSH and Reverse Proxy
     sudo chown -R nobody:nogroup /app/PYNginx 
     sudo chmod -R 0777 /app/PYNginx 
     
-### Create app upstart script
+### Create app service
     sudo nano /etc/init/uwsgi.conf
     
+    [Unit]
+    Description=uWSGI
+    Wants=network.target
+    After=network.target
+
+    [Service]
+    WorkingDirectory=/app/PYNginx/src
+    Environment="PATH=/app/pynginx/bin"
+    ExecStart=/app/pynginx/bin/uwsgi --ini /app/PYNginx/src/uwsgi.ini
+
+    # Requires systemd version 211 or newer
+    RuntimeDirectory=uwsgi
+    Restart=always
+    KillSignal=SIGQUIT
+    Type=notify
+    StandardError=syslog
+    NotifyAccess=all
+
+    [Install]
+    WantedBy=multi-user.target
+    
+###Activate service on boot
+    sudo systemctl activate uwsgi.service
