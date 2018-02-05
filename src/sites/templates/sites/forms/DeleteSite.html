@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block title %} New Site {% endblock %}
+{% block container %}
+    <article class="content dashboard-page">
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="card-title-block">
+                                <h3 class="title"> Delete Site </h3>
+                            </div>
+                            <section class="example">
+                                {% load widget_tweaks %}
+                                <form action="" method="post">{% csrf_token %}
+                                    <p>Are you sure you want to delete "{{ object.domain }}"?</p>
+                                    <input class="btn btn-danger" type="submit" value="Confirm"/>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

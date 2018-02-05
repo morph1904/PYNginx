@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}All Sites{% endblock %}
+
+{% block container %}
+    <article class="content dashboard-page">
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="card-title-block">
+                                <h3 class="title"> All Sites </h3>
+                            </div>
+                            <section class="example">
+                                <h1>test</h1>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

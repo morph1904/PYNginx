@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+{% load thumbnail %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="author" content="Arun Ravindran">
+    <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'modularadmin/css/vendor.css' %}" rel="stylesheet">
+    <link href="{% static 'modularadmin/css/app-blue.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this site -->
+    {% block styles %}
+
+    {% endblock styles %}
+
+    <!-- Custom tags for the head tag -->
+    {% block extrahead %}{% endblock extrahead %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="main-wrapper">
+    <div class="app" id="app">
+
+
+        {% include 'base/partials/_header.html' %}
+        {% include 'base/partials/_sidebar.html' %}
+
+
+        {% block messages %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">  <!-- singular -->
+                        <a class="close" data-dismiss="alert">×</a>
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endblock %}
+
+        {% block splash %}
+        {% endblock splash %}
+
+        {% block container %}
+
+        {% endblock container %}
+
+        <!-- Site footer -->
+        {% include 'base/partials/_footer.html' %}
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'modularadmin/js/vendor.js' %}"></script>
+<script src="{% static 'modularadmin/js/app.js' %}"></script>
+{% block scripts %}
+{% endblock scripts %}
+</body>
+</html>
+
+
