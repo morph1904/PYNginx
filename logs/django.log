@@ -16665,3 +16665,13 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [get_absolute_u
 [05/Feb/2018 12:07:21] INFO [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/core/servers/basehttp.py:124] "GET /sites/create/ HTTP/1.1" 200 27922
 [05/Feb/2018 12:07:22] WARNING [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/core/servers/basehttp.py:124] "GET /static/modularadmin/js/popper.js.map HTTP/1.1" 404 1700
 [05/Feb/2018 12:07:22] WARNING [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/core/servers/basehttp.py:124] "GET /static/modularadmin/css/bootstrap.css.map HTTP/1.1" 404 1715
+[05/Feb/2018 12:50:40] DEBUG [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/db/backends/utils.py:90] (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[05/Feb/2018 12:50:40] DEBUG [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/db/backends/utils.py:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[05/Feb/2018 13:05:42] DEBUG [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/db/backends/utils.py:90] (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[05/Feb/2018 13:05:42] DEBUG [/Users/leegregory/Sites/Environments/PY_Nginx/lib/python3.6/site-packages/django/db/backends/utils.py:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
