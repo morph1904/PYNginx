@@ -28,7 +28,8 @@ THUMBNAIL_DEBUG = True
 # Allow internal IPs for debugging
 INTERNAL_IPS = [
     '127.0.0.1',
-    '0.0.0.1',
+    '0.0.0.0',
+    '192.168.1.194'
 ]
 
 # Log everything to the logs directory at the top
