@@ -13,7 +13,7 @@ A Django based Nginx control panel with SSH and Reverse Proxy
     
 ### Create and setup virtualenv
     virtualenv pynginx
-    source newenv/bin/activate
+    source pynginx/bin/activate
     
 ### Clone PYNginx
     git clone https://github.com/morph1904/PYNginx.git
