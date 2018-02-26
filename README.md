@@ -54,7 +54,7 @@ I will try to script this up at some point.
     [Service]
     WorkingDirectory=/app/PYNginx/src
     Environment="PATH=/app/pynginx/bin"
-    ExecStart=/app/pynginx/bin/uwsgi --ini /app/PYNginx/src/uwsgi.ini
+    ExecStart=/app/pynginx/bin/uwsgi --ini /app/PYNginx/uwsgi.ini
 
     # Requires systemd version 211 or newer
     RuntimeDirectory=uwsgi
